@@ -1,0 +1,17 @@
+$pokemon-item-min-width: 200px
+$pokemon-item-max-width: 300px
+$pokemon-list-gap: 20px
+$pokemon-list-breakpoint: 768px
+
+.pokemon-list
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+
+    .pokemon-item
+        flex: 1 1 $pokemon-item-min-width
+        margin: calc($pokemon-list-gap / 2)
+
+    @media (min-width: $pokemon-list-breakpoint)
+        .pokemon-item
+            flex-basis: calc((100% - #{$pokemon-list-gap * 2}) / 3) // Display 3 items per row for larger screens
