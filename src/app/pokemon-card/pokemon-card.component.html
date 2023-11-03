@@ -1,0 +1,82 @@
+<div class="pokemon-card" (click)="selectCard()">
+  <img [src]="getPokemonImage()" /><br />
+  <b>N° {{ numero }}</b
+  ><br />
+  <b>{{ pokemon.name | titlecase }}</b
+  ><br />
+  <b *ngIf="pokemonTypes && pokemonTypes.length > 0">
+    <span
+      class="typeTag"
+      [style.background-color]="typeColors[type.toLowerCase()] || '#c5c5c5'"
+      *ngFor="let type of pokemonTypes"
+    >
+      {{ type }}
+    </span>
+  </b>
+</div>
+
+<p-dialog
+  [modal]="true"
+  [(visible)]="display"
+  positionStyle="fixed"
+  [draggable]="false"
+  width="1000px"
+>
+  <div class="flex py-2 justify-content-center">
+    <div class="pokemon-card">
+      <div class="pokemon-detailed-card-title">
+        <h2>{{ pokemon.name | titlecase }} N° {{ numero }}</h2>
+      </div>
+      <table>
+        <td>
+          <img [src]="getPokemonImage()" width="250px" height="250px" />
+        </td>
+        <td>
+          <tr>
+            <app-pokemon-stats-chart
+              [pokemon]="pokemonStatsResults"
+            ></app-pokemon-stats-chart>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <h4>Habilidades</h4>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <b *ngIf="pokemonAbilities && pokemonAbilities.length > 0">
+                <span
+                  class="typeTag"
+                  [style.background-color]="'#c4c4c4'"
+                  *ngFor="let ability of pokemonAbilities"
+                >
+                  {{ ability }}
+                </span>
+              </b>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <h4>Tipos</h4>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <b *ngIf="pokemonTypes && pokemonTypes.length > 0">
+                <span
+                  class="typeTag"
+                  [style.background-color]="
+                    typeColors[type.toLowerCase()] || '#c5c5c5'
+                  "
+                  *ngFor="let type of pokemonTypes"
+                >
+                  {{ type }}
+                </span>
+              </b>
+            </td>
+          </tr>
+        </td>
+      </table>
+    </div>
+  </div>
+</p-dialog>
