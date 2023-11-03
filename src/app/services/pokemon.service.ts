@@ -48,6 +48,8 @@ export class PokemonService {
       name: data.name,
       number: data.id,
       types: data.types.map((type: any) => type.type.name as Type),
+      abilities: data.abilities,
+      stats: data.stats,
     };
     return pokemon;
   }
@@ -57,10 +59,20 @@ export interface Pokemon {
   name: string;
   types: Type[];
   number: number;
+  abilities: { ability: AbilityInfo }[];
+  stats: { base_stat: number; stat: Stats }[];
 }
 
 enum Type {
   Grass = 'Grass',
   Poison = 'Poison',
   Fire = 'Fire',
+}
+
+export interface AbilityInfo {
+  name: string;
+}
+
+export interface Stats {
+  name: string;
 }

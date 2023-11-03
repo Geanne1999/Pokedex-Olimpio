@@ -8,9 +8,12 @@ import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonService } from './services/pokemon.service';
 import { PokemonSearchComponent } from './pokemon-search/pokemon-search.component';
-import { SplashComponent } from './splash/splash.component';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
+import { DialogModule } from 'primeng/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgChartsModule } from 'ng2-charts';
+import { PokemonStatsChartComponent } from './pokemon-stats-chart/pokemon-stats-chart.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,7 @@ import { InputTextModule } from 'primeng/inputtext';
     PokemonListComponent,
     PokemonCardComponent,
     PokemonSearchComponent,
-    SplashComponent,
+    PokemonStatsChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,9 @@ import { InputTextModule } from 'primeng/inputtext';
     HttpClientModule,
     FormsModule,
     InputTextModule,
+    DialogModule,
+    BrowserAnimationsModule,
+    NgChartsModule,
   ],
   providers: [PokemonService],
   bootstrap: [AppComponent],
